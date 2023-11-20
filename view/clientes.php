@@ -48,7 +48,6 @@
             <div class="bg-yellow-500 p-4 rounded-lg mb-4">
                 <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['nombre']; ?></div>
                 <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['celular']; ?></div>
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['celular']; ?></div>
                 <a href="clienteinfo.php?id=<?php echo $infoCliente["usuario"]; ?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Informacion</button></a>
             </div>
         <?php
