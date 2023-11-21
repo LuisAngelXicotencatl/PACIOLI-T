@@ -16,23 +16,23 @@
     <img class="mx-auto h-10 w-auto" src="../images/logo.png" alt="Your Company">
         <h1 class="text-2xl font-bold mb-6">Registro de Usuario</h1>
         
-        <form action="/tu/endpoint/de/almacenamiento" method="post">
+        <form action="../controller/register.php" method="post">
             <!-- Nombre -->
             <div class="mb-4">
                 <label for="nombre" class="block text-sm font-medium text-gray-600">Nombre</label>
-                <input type="text" id="nombre" name="nombre" class="mt-1 p-2 w-full border rounded-md">
+                <input type="text" id="nombre" name="nombre" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Password -->
             <div class="mb-4">
                 <label for="password" class="block text-sm font-medium text-gray-600">Contraseña</label>
-                <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md">
+                <input type="password" id="password" name="password" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Correo -->
             <div class="mb-4">
                 <label for="correo" class="block text-sm font-medium text-gray-600">Correo Electrónico</label>
-                <input type="email" id="correo" name="correo" class="mt-1 p-2 w-full border rounded-md">
+                <input type="email" id="correo" name="correo" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Portada -->
@@ -44,19 +44,29 @@
             <!-- Apellido Paterno -->
             <div class="mb-4">
                 <label for="apellidoAp" class="block text-sm font-medium text-gray-600">Apellido Paterno</label>
-                <input type="text" id="apellidoAp" name="apellidoAp" class="mt-1 p-2 w-full border rounded-md">
+                <input type="text" id="apellidoAp" name="apellidoAp" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Apellido Materno -->
             <div class="mb-4">
                 <label for="apellidoAm" class="block text-sm font-medium text-gray-600">Apellido Materno</label>
-                <input type="text" id="apellidoAm" name="apellidoAm" class="mt-1 p-2 w-full border rounded-md">
+                <input type="text" id="apellidoAm" name="apellidoAm" class="mt-1 p-2 w-full border rounded-md" required>
             </div>
 
             <!-- Dirección -->
             <div class="mb-4">
                 <label for="direccion" class="block text-sm font-medium text-gray-600">Dirección</label>
-                <textarea id="direccion" name="direccion" rows="4" class="mt-1 p-2 w-full border rounded-md"></textarea>
+                <textarea id="direccion" name="direccion" rows="4" class="mt-1 p-2 w-full border rounded-md" required></textarea>
+            </div>
+            <!-- celular -->
+            <div class="mb-4">
+                <label for="celular" class="block text-sm font-medium text-gray-600">celular</label>
+                <input id="celular" name="celular" class="mt-1 p-2 w-full border rounded-md" required></input>
+            </div>
+            <!-- telefono -->
+            <div class="mb-4">
+                <label for="telefono" class="block text-sm font-medium text-gray-600">telefono</label>
+                <input id="telefono" name="telefono" class="mt-1 p-2 w-full border rounded-md" required></input>
             </div>
 
             <!-- Botón de Enviar -->

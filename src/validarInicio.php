@@ -19,17 +19,27 @@ if (mysqli_num_rows($resultado) == 1) {
 
   $consultaAdm = "SELECT * FROM contador WHERE id_usuario = '$id_usuario'";
   $resultadoAdm=mysqli_query($conexion,$consultaAdm);
-  
+
+  $consultaEmpresa = "SELECT * FROM empresa WHERE id_usuario = '$id_usuario'";
+  $resultadoEmpresa=mysqli_query($conexion,$consultaEmpresa);
+
   if (mysqli_num_rows($resultadoAdm) == 1){
     $filaadmin = mysqli_fetch_assoc($resultadoAdm);
     $id_usuarioAdmin = $filaadmin['id_usuario'];
     
     $_SESSION['id_usuarioAdm']= $id_usuarioAdmin;
     header("location: ../view/inicioAdmin.php");
+  } else if(mysqli_num_rows($resultadoEmpresa) == 1){
+    $filaempresa = mysqli_fetch_assoc($resultadoEmpresa);
+    $id_Empresa = $filaempresa['id_empresa'];
+    $id_usuarioEmpresa = $filaempresa['id_usuario'];
+    
+    $_SESSION['id_Empresa']= $id_Empresa;
+    $_SESSION['id_usuarioEmpresa']= $id_usuarioEmpresa;
+    header("location: ../view/inicioEmpresas.php");
   }else{
     header("location: ../view/inicio.php");
   }
-  
 
 }else{
     ?>

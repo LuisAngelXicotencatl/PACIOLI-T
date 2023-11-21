@@ -1,14 +1,15 @@
 <?php
 error_reporting(0);
 session_start();
-$idAdmin = $_SESSION['id_usuarioAdm'];
-if ($idAdmin == null || $idAdmin == '0') {
+$idEmpresa = $_SESSION['id_usuarioEmpresa'];
+if ($idEmpresa == null || $idEmpresa == '0') {
     echo 'Error al iniciar sesión';
     die();
 }
 error_reporting(0);
 $ID = $_SESSION['id_usuario'];
-$admin = $_SESSION['id_usuarioAdm'];
+$empresaid = $_SESSION['id_Empresa'];
+$empresa =  $_SESSION['id_usuarioEmpresa'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,75 +28,76 @@ $admin = $_SESSION['id_usuarioAdm'];
     <section id="inicio" class="body">
         <header class="nav">
             <h1 class="icon">
-                <a class="sub" href="inicioAdmin.php">PACIOLI</a>
+                <a class="sub" href="inicioAdmin.php">PACIOLI-Empresas</a>
             </h1>
-            <nav>
-                <ul>
-                    <li><a accesskey="r" href="#nosotros">Empresas</a></li>
-                    <li><a accesskey="c" href="clientes.php">Clientes</a></li>
-                </ul>
-            </nav>
         </header> 
         <div class="title-b title-vertical">
             PACIOLI
         </div>
-        <h1 class="title-b title-vertical">Administrador <?php echo $_SESSION['nombre'];?>!!</h1>
+        <h1 class="title-b title-vertical"><?php echo $_SESSION['nombre'];?> !!</h1>
         <a accesskey="r" href="#nosotros"><div class="arrow slider-arrow ">↓</div></a>
     </section>
 
     <!-- citas -->
     <section id="nosotros" class="bg-gray-100 py-8 md:py-16">
-        <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Mis reuniones</div>
+        <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Reuniones agendas por la empresa</div>
         <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8">
-        Aqui le mostramos todas tus reuniones creadas en las que sus clientes ya han apartado el lugar
-        </p>
-        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8 ">
+        Nos encontramos comprometidos en brindar el mejor servicio a nuestros apreciados clientes, y es por ello, PACIOLI genera reuniones para notificar los avances con la empresa
         </p>
         <div class="flex items-center justify-center space-x-4 flex-wrap">
             <?php
             include('../CONTROLLER/conexionbd.php');
-            $citas = "SELECT *  FROM citas where responsable = 1 and usuario != 3";
+            $citas = "SELECT *  FROM reuniones where id_empresa = $empresaid";
+            $resultado = mysqli_query($conexion, $citas);
+             while($row=mysqli_fetch_assoc($resultado)) {
+            ?>
+            <div class="bg-red-700 p-4 rounded-lg mb-4">
+                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['fecha'];?></div>
+                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['hora'];?></div>
+            </div>
+            <?php
+            }
+             ?>
+        </div>
+    </section>
+    <section id="nosotros" class="bg-gray-100 py-8 md:py-16">
+        <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Agendar cita</div>
+        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8">
+        Con el objetivo de facilitar la planificación de sus citas, compartimos con usted nuestras fechas disponibles.
+        </p>
+        <div class="flex items-center justify-center space-x-4 flex-wrap">
+            <?php
+            include('../CONTROLLER/conexionbd.php');
+            $citas_query = "SELECT * FROM citas WHERE usuario = $ID";
+            $citas_result = mysqli_query($conexion, $citas_query);
+            $citas = "SELECT *  FROM citas where usuario = 3";
+            if (mysqli_num_rows($citas_result) > 0) {
+                echo '<div class="text-lg md:text-xl font-bold text-gray-900">Ya tiene una cita programada.</div> <a href="miCitaEmpresa.php" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Ver</button></a>';
+            } else {
             $resultado = mysqli_query($conexion, $citas);
              while($row=mysqli_fetch_assoc($resultado)) {
             ?>
             <div class="bg-yellow-500 p-4 rounded-lg mb-4">
                 <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['fecha'];?></div>
                 <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['hora'];?></div>
-                <a href="citaT.php?id=<?php echo $row["id_cita"];?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Informacion</button></a>
+                <a href="cita.php?id=<?php echo $row["id_cita"];?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Tomar fecha</button></a>
             </div>
             <?php
             }
-            ?>
+        }
+             ?>
         </div>
     </section>
-    <section id="nosotros" class="bg-gray-100 py-8 md:py-16 flex items-center justify-center flex-col">
-        <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Mis reuniones sin clientes</div>
-        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8">
-        Aqui le mostramos todas sus reuniones creadas en las que sus cliente aun no han apartado la raunion,por ello puede modificarlas o eliminarlas
+    <section id="nosotros" class="bg-gray-100 py-8 md:py-16">
+        <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Agendar cita</div>
+        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8">   
+El tener una cuenta nivel EMPRESARIA, PACIOLI le brinda la oportunidad exclusiva de solicitar una cita personalizada en sus propias instalaciones, con la flexibilidad de seleccionar un horario que se ajuste a sus conveniencias y posibilidades, garantizando un encuentro que permita
+ abordar de manera detallada sus necesidades financieras y brindar soluciones a medida.
         </p>
         <div class="flex items-center justify-center space-x-4 flex-wrap">
-            <?php
-            include('../CONTROLLER/conexionbd.php');
-            $citas = "SELECT *  FROM citas where responsable = 1 and usuario = 3";
-            $resultado = mysqli_query($conexion, $citas);
-             while($row=mysqli_fetch_assoc($resultado)) {
-            ?>
-            <div class="bg-blue-500 p-4 rounded-lg mb-4">
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['fecha'];?></div>
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['hora'];?></div>
-                <a href="modificacitaA.php?id=<?php echo $row["id_cita"];?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Modificar</button></a>
-            </div>
-            <?php
-            }
-            ?>
+        <a href="crearMiCita.php" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Generar mi cita</button></a>
         </div>
-        <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-4 md:mb-8">
-        Se le recomendamos no tener menos de 5 horarios sin clientes, con el fin de que nuestros usuarios no esperen demasiado en obtener una cita
-        </p>
-        <a href="nuevaCita.php" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">+ Nueva horario +</button></a>
     </section>
-
-
     <!--Cotizaciones-->
     <!-- footer--->
     <footer class="text-white py-8 bg-gray-800">

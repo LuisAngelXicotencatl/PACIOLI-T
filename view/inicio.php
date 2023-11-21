@@ -151,6 +151,7 @@ $admin = $_SESSION['id_usuarioAdm'];
             <a href="../controller/cerrarSession.php"><button class="bg-gray-900 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2">Cerrar Sesión</button></a>
             <a href="#inicio" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Regresar al Inicio</button></a>
         </div>
+        <a href="sugerencia.php"><p class="text-base md:text-lg text-gray-400 text-center mb-4 md:mb-8">Solicitar cuenta empresa</p></a>
     </footer>
 </body>
 </html>
