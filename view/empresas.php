@@ -29,31 +29,18 @@
     <div class="flex items-center justify-center space-x-4 flex-wrap">
         <?php
         include('../CONTROLLER/conexionbd.php');
-        $citas = "SELECT `citas`.`id_cita`, `citas`.`responsable`, `citas`.`usuario`, `usuarios`.`nombre`, `usuarios`.`portada`, `usuarios`.`celular`FROM `citas` LEFT JOIN `usuarios` ON `citas`.`usuario` = `usuarios`.`id_usuario` WHERE responsable = 1";
+        $citas = "SELECT `empresa`.`id_empresa`, `empresa`.`id_usuario`, `usuarios`.`nombre`, `usuarios`.`correo`, `usuarios`.`direccion`, `usuarios`.`celular`, `usuarios`.`telefono`
+        FROM `empresa` 
+            LEFT JOIN `usuarios` ON `empresa`.`id_usuario` = `usuarios`.`id_usuario`";
         $resultado = mysqli_query($conexion, $citas);
-        $clientes = array();
 
         while ($row = mysqli_fetch_assoc($resultado)) {
-            $usuario = $row['usuario'];
-            if (!isset($clientes[$usuario])) {
-                $clientes[$usuario] = array(
-                    'nombre' => $row['nombre'],
-                    'celular' => $row['celular'],
-                    'id_cita' => $row['id_cita'],
-                    'id_usuario' => $row['usuario'],
-                );
-            }
-        }
-        foreach ($clientes as $usuario => $infoCliente) {
-            if ($infoCliente['id_usuario'] == 3) {
-                continue;
-            }
         ?>
             <div class="bg-yellow-500 p-4 rounded-lg mb-4">
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['nombre']; ?></div>
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['celular']; ?></div>
-                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $infoCliente['id_usuario']; ?></div>
-                <a href="clienteinfo.php?id=<?php echo $infoCliente["id_usuario"]; ?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Informacion del cliente</button></a>
+                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['nombre']; ?></div>
+                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['celular']; ?></div>
+                <div class="text-lg md:text-xl font-bold text-gray-900"><?php echo $row['correo']; ?></div>
+                <a href="crearreunion.php?id=<?php echo $row["id_empresa"]; ?>" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Agregar reunion</button></a>
             </div>
         <?php
         }

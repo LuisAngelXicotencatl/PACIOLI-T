@@ -31,8 +31,8 @@ $admin = $_SESSION['id_usuarioAdm'];
             </h1>
             <nav>
                 <ul>
-                    <li><a accesskey="r" href="#nosotros">Empresas</a></li>
-                    <li><a accesskey="c" href="clientes.php">Clientes</a></li>
+                    <li><a href="empresas.php">Empresas</a></li>
+                    <li><a href="clientes.php">Clientes</a></li>
                 </ul>
             </nav>
         </header> 

@@ -1,7 +1,6 @@
 <?php
 include("conexionbd.php");
-session_start();
-$cita = $_SESSION['id_cita'];
+$cita = $_GET['id'];
 $idusuario = '3';
 $descripcion = "";
 

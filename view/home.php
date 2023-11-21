@@ -38,15 +38,15 @@
         </p>
         <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">Nuestros servicios principales</div>
         <div class="flex flex-col sm:flex-row sm:space-x-4 justify-center">
-            <div class="bg-yellow-500 p-4 rounded-lg mb-4 sm:mb-0">
+            <a href="auditoria.php"><div class="bg-yellow-500 p-4 rounded-lg mb-4 sm:mb-0">
                 <div class="text-lg md:text-xl font-bold text-gray-900">Auditoria</div>
-            </div>
-            <div class="bg-yellow-500 p-4 rounded-lg mb-4 sm:mb-0">
+            </div></a>
+            <a href="declaracion.php"><div class="bg-yellow-500 p-4 rounded-lg mb-4 sm:mb-0">
                 <div class="text-lg md:text-xl font-bold text-gray-900">Declaracion de impuestos</div>
-            </div>
-            <div class="bg-yellow-500 p-4 rounded-lg">
+            </div></a>
+            <a href="asesoramiento.php"><div class="bg-yellow-500 p-4 rounded-lg">
                 <div class="text-lg md:text-xl font-bold text-gray-900">Asesoramiento contable</div>
-            </div>
+            </div></a>
         </div>
     </section>
 
