@@ -18,7 +18,7 @@ $_SESSION['id_empresa']= $ID;
 <body>
        <header class="nav">
             <h1 class="icon">
-                <a class="sub" href="inicio.php">PACIOLI</a>
+                <a class="sub" href="inicioAdmin.php">PACIOLI</a>
             </h1>
         </header> 
 
