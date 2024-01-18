@@ -12,7 +12,7 @@ $registercita = "UPDATE `citas` SET `usuario` = '$idusuario', `descripcion` = '$
 
 $resultado = mysqli_query($conexion, $registercita);
 if($resultado) {
-    header("location: ../view/inicio.php");
+    header("location: emailverification.php");
 } else {
     echo "<script>alert('Error'); window.history.go(-1);</script>";
 }

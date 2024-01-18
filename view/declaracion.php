@@ -45,17 +45,11 @@
             <img src="../images/impuestos.webp" alt="portada">
         </div>
     </section>
-    <!-- footer--->
     <footer class="text-white py-8">
         <div class="text-2xl md:text-4xl font-bold text-center mb-4 md:mb-8 text-gray-900">PACIOLI</div>
         <div class="flex justify-center items-center flex-col md:flex-row">
-            <!-- Botón de Iniciar Sesión -->
             <a href="../src/index.html"><button class="bg-gray-900 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2">Iniciar Sesión</button></a>
-            
-            <!-- Botón de Registrarse -->
             <a href="./register.php"><button class="bg-gray-900 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-2">Registrarse</button></a>
-            
-            <!-- Botón de Regresar al Inicio -->
             <a href="home.php" class="inline-block"><button class="bg-gray-900 text-white px-4 py-2 rounded">Regresar al Inicio</button></a>
         </div>
     </footer>

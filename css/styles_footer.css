@@ -1,17 +1,17 @@
 .bottomh{
-    display: block;/*establece que el lemento ocupara todo el espacio y el siguiente objeto aparecera abajo*/
-    width: 60%; /*ancho maximo*/
-    margin: 1em auto; /*margen superior e inferior de 1 y un margen derecho e izquierdo auto que es centrado*/
-    height: 2em; /*altura*/
-    font-size: 1.1rem;/*tama;o de la letra*/
-    background-color: #3b3b4f; /*color de fondo*/
-    border-color: white;/*color del borde*/
-    min-width: 300px;/*ancho minimo*/
+    display: block;
+    width: 60%;
+    margin: 1em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    background-color: #3b3b4f;
+    border-color: white;
+    min-width: 300px;
     border-radius: 15px;
     text-decoration: none;
 }
 
-@media (max-width: 600px) { /* Cambia 600px por el ancho máximo que consideres para pantallas pequeñas */
+@media (max-width: 600px) {
   .bottomh {
     width: 70%;
     margin-left: auto;
@@ -45,15 +45,15 @@ a:visited{
 
 @media (max-width: 600px) {
   .flex-horixontal-botones {
-    flex-direction: column; /* Cambiamos la dirección a columna */
-    align-items: flex-start; /* Alineamos los elementos a la izquierda */
-    padding-left: 0; /* Quitamos el padding izquierdo */
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
     align-items: center;
   }
   
   .flex-horixontal-botones button {
-    margin-bottom: 10px; /* Agregamos un margen inferior entre los botones */
-    width: 100%; /* Establecemos el ancho al 100% para ocupar todo el espacio disponible */
+    margin-bottom: 10px;
+    width: 100%;
   }
 }
 
@@ -63,7 +63,7 @@ a:visited{
  font-family: italic;
  padding-left: 10%;
 }
-@media (max-width: 600px) { /* Cambia 600px por el ancho máximo que consideres para pantallas pequeñas */
+@media (max-width: 600px) {
   .footer-name{
     font-size: 15px;
     padding-left: 3%;

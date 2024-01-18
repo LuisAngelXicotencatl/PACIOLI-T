@@ -2,20 +2,20 @@ html{
     scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
-  width: 3px; /* Ancho del scroll */
+  width: 3px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Color del fondo del track */
+  background-color: #f1f1f1;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #cfcbcb; /* Color del scroll thumb */
-  border-radius: 1px; /* Borde redondeado */
+  background-color: #cfcbcb;
+  border-radius: 1px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Color del scroll thumb al pasar el mouse */
+  background-color: #555;
 }
   
 body{
@@ -249,8 +249,8 @@ a{
 }
 
 .tarjet {
-  width: 700px; /* Ajusta el ancho según tus necesidades */
-  max-width: 800px; /* Establece un ancho máximo para pantallas más grandes */
+  width: 700px;
+  max-width: 800px;
   margin: 15px;
   padding: 2%;
   background-color: rgb(208, 208, 213);
@@ -265,23 +265,23 @@ a{
 }
 
 .title-clientes {
-  font-size: 2vw; /* Usa unidades relativas para el tamaño de fuente */
+  font-size: 2vw;
   padding: 2px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .p-clientes {
-  font-size: 1.2vw; /* Usa unidades relativas para el tamaño de fuente */
+  font-size: 1.2vw;
   font-family: Georgia, 'Times New Roman', Times, serif;
   padding: 2px;
 }
 
 @media only screen and (max-width: 600px) {
   .title-clientes {
-      font-size: 4vw; /* Ajusta el tamaño de fuente para dispositivos móviles */
+      font-size: 4vw;
   }
 
   .p-clientes {
-      font-size: 2vw; /* Ajusta el tamaño de fuente para dispositivos móviles */
+      font-size: 2vw;
   }
 }
